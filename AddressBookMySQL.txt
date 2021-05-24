@@ -1,0 +1,7 @@
+//UC1 creating database
+
+mysql> CREATE DATABASE AddressBookService;
+Query OK, 1 row affected (0.83 sec)
+
+mysql> use AddressBookService;
+Database changed
