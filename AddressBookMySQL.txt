@@ -114,7 +114,29 @@ mysql> SELECT COUNT(City) FROM Address_Book_Table;
 
 **********************************************************************
 
-//UC8 Ability to identify each address Book with name and type.
+//UC8 Ability to retrieve entries in alphabetical order by First Name
+
+mysql> select * from Address_Book_Table;
++-----------+----------+-------------------------+----------+-------+--------+-------------+-------------------+
+| FirstName | LastName | Address                 | City     | State | Zip    | PhoneNumber | Email             |
++-----------+----------+-------------------------+----------+-------+--------+-------------+-------------------+
+| Rahul     | Ninawe   | 45A, XYZ Colony         | Nagpur   | Maha  | 879465 |    21379847 | rahul@gmail.com   |
+| Ayur      | Ninawwe  | Amravati yashoda square | Amravati | Maha  |   7456 |     1258896 | ayurnin@gmail.com |
+| Anuj      | Hade     | 49A, XY Colony          | Betul    | Maha  |  74855 |      751695 | anuj@gmail.com    |
++-----------+----------+-------------------------+----------+-------+--------+-------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from Address_Book_Table WHERE State = 'Maha' ORDER BY FirstName ASC;
++-----------+----------+-------------------------+----------+-------+--------+-------------+-------------------+
+| FirstName | LastName | Address                 | City     | State | Zip    | PhoneNumber | Email             |
++-----------+----------+-------------------------+----------+-------+--------+-------------+-------------------+
+| Anuj      | Hade     | 49A, XY Colony          | Betul    | Maha  |  74855 |      751695 | anuj@gmail.com    |
+| Ayur      | Ninawwe  | Amravati yashoda square | Amravati | Maha  |   7456 |     1258896 | ayurnin@gmail.com |
+| Rahul     | Ninawe   | 45A, XYZ Colony         | Nagpur   | Maha  | 879465 |    21379847 | rahul@gmail.com   |
++-----------+----------+-------------------------+----------+-------+--------+-------------+-------------------+
+3 rows in set (0.10 sec)
+
+******************************************************************
 
 
 
