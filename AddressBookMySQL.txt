@@ -36,3 +36,13 @@ mysql> DESCRIBE Address_Book_Table;
 | Email       | varchar(50)  | NO   |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.13 sec)
+
+//UC3 Adding contacts
+
+mysql> INSERT INTO Address_Book_Table VALUES
+    -> ('Rahul', 'Ninawe', '45A, XYZ Colony','Nagpur','Maha', 879465, 21379847, 'rahul@gmail.com'),
+    -> ('Ayur', 'Ninawwe', '48A, XZ Colony','Amravati','Maha', 879478,1258896, 'ayur@gmail.com'),
+    -> ('Radhe', 'Kumar', '45b, XYZ Colony','Lucknow','UP', 74665, 3774814, 'radhe@gmail.com'),
+    -> ('Anuj', 'Hade', '49A, XY Colony','Betul','UP', 74855, 751695, 'anuj@gmail.com');
+Query OK, 4 rows affected (0.32 sec)
+Records: 4  Duplicates: 0  Warnings: 0
