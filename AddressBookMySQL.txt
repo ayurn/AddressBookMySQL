@@ -46,3 +46,22 @@ mysql> INSERT INTO Address_Book_Table VALUES
     -> ('Anuj', 'Hade', '49A, XY Colony','Betul','UP', 74855, 751695, 'anuj@gmail.com');
 Query OK, 4 rows affected (0.32 sec)
 Records: 4  Duplicates: 0  Warnings: 0
+
+//UC4 Editing existing contact by first name
+
+mysql> UPDATE Address_Book_Table
+    -> SET Address = 'Amravati yashoda square', State ='Maharashtra', Zip = '7456', Email = 'ayurnin@gmail.com'
+    -> WHERE FirstName = 'Ayur';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Address_Book_Table;
++-----------+----------+-------------------------+----------+-------------+--------+-------------+-------------------+
+| FirstName | LastName | Address                 | City     | State       | Zip    | PhoneNumber | Email             |
++-----------+----------+-------------------------+----------+-------------+--------+-------------+-------------------+
+| Rahul     | Ninawe   | 45A, XYZ Colony         | Nagpur   | Maha        | 879465 |    21379847 | rahul@gmail.com   |
+| Ayur      | Ninawwe  | Amravati yashoda square | Amravati | Maharashtra |   7456 |     1258896 | ayurnin@gmail.com |
+| Radhe     | Kumar    | 45b, XYZ Colony         | Lucknow  | UP          |  74665 |     3774814 | radhe@gmail.com   |
+| Anuj      | Hade     | 49A, XY Colony          | Betul    | UP          |  74855 |      751695 | anuj@gmail.com    |
++-----------+----------+-------------------------+----------+-------------+--------+-------------+-------------------+
+4 rows in set (0.18 sec)
