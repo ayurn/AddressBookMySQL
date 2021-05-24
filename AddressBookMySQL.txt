@@ -1,14 +1,13 @@
 //UC1 creating database
-
 mysql> CREATE DATABASE AddressBookService;
 Query OK, 1 row affected (0.83 sec)
 
 mysql> use AddressBookService;
 Database changed
 
+**************************************************
 
 //UC2 creating address book table
-
 mysql> create table Address_Book_Table
     -> (
     -> FirstName VARCHAR(150) NOT NULL,
@@ -37,8 +36,9 @@ mysql> DESCRIBE Address_Book_Table;
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.13 sec)
 
-//UC3 Adding contacts
+*******************************************************************
 
+//UC3 Adding contacts
 mysql> INSERT INTO Address_Book_Table VALUES
     -> ('Rahul', 'Ninawe', '45A, XYZ Colony','Nagpur','Maha', 879465, 21379847, 'rahul@gmail.com'),
     -> ('Ayur', 'Ninawwe', '48A, XZ Colony','Amravati','Maha', 879478,1258896, 'ayur@gmail.com'),
@@ -47,8 +47,9 @@ mysql> INSERT INTO Address_Book_Table VALUES
 Query OK, 4 rows affected (0.32 sec)
 Records: 4  Duplicates: 0  Warnings: 0
 
-//UC4 Editing existing contact by first name
+***********************************************************
 
+//UC4 Editing existing contact by first name
 mysql> UPDATE Address_Book_Table
     -> SET Address = 'Amravati yashoda square', State ='Maharashtra', Zip = '7456', Email = 'ayurnin@gmail.com'
     -> WHERE FirstName = 'Ayur';
@@ -66,8 +67,9 @@ mysql> select * from Address_Book_Table;
 +-----------+----------+-------------------------+----------+-------------+--------+-------------+-------------------+
 4 rows in set (0.18 sec)
 
-//UC5 Deleting contact using first name
+**************************************************************
 
+//UC5 Deleting contact using first name
 mysql> DELETE FROM Address_Book_Table WHERE FirstName = 'Radhe';
 Query OK, 1 row affected (0.20 sec)
 
@@ -81,8 +83,9 @@ mysql> select * from Address_Book_Table;
 +-----------+----------+-------------------------+----------+-------------+--------+-------------+-------------------+
 3 rows in set (0.08 sec)
 
-//UC6 ability to retrive person belonging to a city
+***********************************************************************
 
+//UC6 ability to retrive person belonging to a city
 mysql> SELECT * FROM Address_Book_Table WHERE City = 'Nagpur';
 +-----------+----------+-----------------+--------+-------+--------+-------------+-----------------+
 | FirstName | LastName | Address         | City   | State | Zip    | PhoneNumber | Email           |
@@ -90,5 +93,19 @@ mysql> SELECT * FROM Address_Book_Table WHERE City = 'Nagpur';
 | Rahul     | Ninawe   | 45A, XYZ Colony | Nagpur | Maha  | 879465 |    21379847 | rahul@gmail.com |
 +-----------+----------+-----------------+--------+-------+--------+-------------+-----------------+
 1 row in set (0.00 sec)
+
+*******************************************************************
+
+//UC7 Ability to get the size of the address book by the city
+mysql> SELECT COUNT(City) FROM Address_Book_Table;
++-------------+
+| COUNT(City) |
++-------------+
+|           3 |
++-------------+
+1 row in set (0.07 sec)
+
+**********************************************************************
+
 
 
