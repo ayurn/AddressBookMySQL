@@ -65,3 +65,20 @@ mysql> select * from Address_Book_Table;
 | Anuj      | Hade     | 49A, XY Colony          | Betul    | UP          |  74855 |      751695 | anuj@gmail.com    |
 +-----------+----------+-------------------------+----------+-------------+--------+-------------+-------------------+
 4 rows in set (0.18 sec)
+
+//UC5 Deleting contact using first name
+
+mysql> DELETE FROM Address_Book_Table WHERE FirstName = 'Radhe';
+Query OK, 1 row affected (0.20 sec)
+
+mysql> select * from Address_Book_Table;
++-----------+----------+-------------------------+----------+-------------+--------+-------------+-------------------+
+| FirstName | LastName | Address                 | City     | State       | Zip    | PhoneNumber | Email             |
++-----------+----------+-------------------------+----------+-------------+--------+-------------+-------------------+
+| Rahul     | Ninawe   | 45A, XYZ Colony         | Nagpur   | Maha        | 879465 |    21379847 | rahul@gmail.com   |
+| Ayur      | Ninawwe  | Amravati yashoda square | Amravati | Maharashtra |   7456 |     1258896 | ayurnin@gmail.com |
+| Anuj      | Hade     | 49A, XY Colony          | Betul    | UP          |  74855 |      751695 | anuj@gmail.com    |
++-----------+----------+-------------------------+----------+-------------+--------+-------------+-------------------+
+3 rows in set (0.08 sec)
+
+
