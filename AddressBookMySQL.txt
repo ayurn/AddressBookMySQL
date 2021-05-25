@@ -280,7 +280,85 @@ Query OK, 0 rows affected (0.57 sec)
 
 *************************************************************************************************************
 
+//UC13
+         #Refactor uc6
+mysql> SELECT FirstName,LastName,City
+    -> FROM Address INNER JOIN People
+    -> ON Address.PersonId = People.PersonId
+    -> WHERE City = 'Amravati';
++-----------+----------+----------+
+| FirstName | LastName | City     |
++-----------+----------+----------+
+| Ayur      | Ninawe   | Amravati |
++-----------+----------+----------+
+1 row in set (0.03 sec)
 
+mysql> SELECT FirstName,LastName,State
+    -> FROM Address INNER JOIN People
+    -> ON Address.PersonId = People.PersonId
+    -> WHERE State = 'Maha';
++-----------+----------+-------+
+| FirstName | LastName | State |
++-----------+----------+-------+
+| Rahul     | Ninawe   | Maha  |
+| Ayur      | Ninawe   | Maha  |
+| Samay     | Raina    | Maha  |
+| Tanmay    | Bhat     | Maha  |
++-----------+----------+-------+
+4 rows in set (0.00 sec)
+
+	#Refactor uc7
+mysql> SELECT COUNT(City),City
+    -> FROM Address INNER JOIN People
+    -> ON Address.PersonId = People.PersonId
+    -> WHERE City = 'Pune'
+    -> GROUP BY City;
++-------------+------+
+| COUNT(City) | City |
++-------------+------+
+|           1 | Pune |
++-------------+------+
+1 row in set (0.12 sec)
+
+mysql> SELECT COUNT(State),State
+    -> FROM Address INNER JOIN People
+    -> ON Address.PersonId = People.PersonId
+    -> WHERE State = 'Maha'
+    -> GROUP BY State;
++--------------+-------+
+| COUNT(State) | State |
++--------------+-------+
+|            4 | Maha  |
++--------------+-------+
+1 row in set (0.00 sec)
+
+	#Refactor uc8
+mysql> SELECT * FROM People INNER JOIN Address
+    -> ON Address.PersonId = People.PersonId
+    -> WHERE State = 'Maha'
+    -> ORDER BY FirstName ASC;
++----------+-----------+----------+-------------+------------------+----------+-----------------+----------+-------+----------+
+| PersonId | FirstName | LastName | PhoneNumber | Email            | PersonId | Person_Address  | City     | State | Zip_Code |
++----------+-----------+----------+-------------+------------------+----------+-----------------+----------+-------+----------+
+|        3 | Ayur      | Ninawe   |  9999999999 | Ayur@gmail.com   |        3 | 87B, XY Colony  | Amravati | Maha  |   852147 |
+|        1 | Rahul     | Ninawe   |  7777777777 | rahul@gmail.com  |        1 | 45A, XYZ Colony | Nagpur   | Maha  |   879465 |
+|        4 | Samay     | Raina    |  4444444444 | Samay@gmail.com  |        4 | 83B, Y Colony   | Pune     | Maha  |   456369 |
+|        5 | Tanmay    | Bhat     |  5555555555 | Tanmay@gmail.com |        5 | 81B, P Colony   | Mumbai   | Maha  |   854967 |
++----------+-----------+----------+-------------+------------------+----------+-----------------+----------+-------+----------+
+4 rows in set (0.00 sec)
+
+	#Refactor uc10
+mysql> SELECT COUNT(AddressBookType),AddressBookType
+    -> FROM AddressBook INNER JOIN People
+    -> ON AddressBook.PersonId = People.PersonId
+    -> WHERE AddressBookType = 'Friend'
+    -> GROUP BY AddressBookType;
++------------------------+-----------------+
+| COUNT(AddressBookType) | AddressBookType |
++------------------------+-----------------+
+|                      2 | Friend          |
++------------------------+-----------------+
+1 row in set (0.00 sec)
 
 
 
